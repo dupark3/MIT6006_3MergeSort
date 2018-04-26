@@ -54,7 +54,8 @@ vector<int> MergeSort(const vector<int>& nums){
 }
 
 int main() {
-    vector<int> nums = {5, 15, 13, 0, -5, 1500, 150000, -1500, -15000};
+    vector<int> nums = {5, 3, 2, 15, 0, -5, 12, 0, 0, 200};
+
     vector<int> sorted = MergeSort(nums);
     
     cout << "Unsorted: ";
