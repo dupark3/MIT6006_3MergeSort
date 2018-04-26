@@ -24,8 +24,6 @@ void PrintVector(const vector<int>& vec){
 }
 
 vector<int> MergeSort(const vector<int>& nums){
-    PrintVector(nums);
-
     // exit condition
     if (nums.size() == 1){
         return nums;
@@ -42,27 +40,21 @@ vector<int> MergeSort(const vector<int>& nums){
     iter right_iter = right.begin();
     vector<int> merged;
     while (left_iter != left.end()|| right_iter != right.end()){
-        if (left_iter == left.end()){
+        if (left_iter == left.end())
             merged.push_back(*right_iter++);
-            cout << "Right appended" << endl;
-        } else if (right_iter == right.end()){
+        else if (right_iter == right.end())
             merged.push_back(*left_iter++);
-            cout << "left appended" << endl;
-        } else if (*left_iter >= *right_iter){
+        else if (*left_iter >= *right_iter)
             merged.push_back(*right_iter++);
-            cout << "Right appended" << endl;
-        } else if (*left_iter < *right_iter){
-            merged.push_back(*left_iter++);
-            cout << "left appended" << endl;
-        }         
-        PrintVector(merged);
+        else if (*left_iter < *right_iter)
+            merged.push_back(*left_iter++);        
     }
 
     return merged;
 }
 
 int main() {
-    vector<int> nums = {5, 3, 2, 15, 0, -5, 12};
+    vector<int> nums = {5, 3, 2, 15, 0, -5, 12, 0, 0, 200};
     vector<int> sorted = MergeSort(nums);
     PrintVector(sorted);
 
