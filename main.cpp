@@ -17,10 +17,11 @@ typedef vector<int>::iterator iter;
 
 void PrintVector(const vector<int>& vec){
     size_t size = vec.size();
-    for(size_t i = 0; i!= size; ++i){
-        cout << vec[i] << " ";
+    cout << '{' << vec[0];
+    for(size_t i = 1; i!= size; ++i){
+        cout << ", " << vec[i];
     }
-    cout << endl;
+    cout << '}' << endl;
 }
 
 vector<int> MergeSort(const vector<int>& nums){
@@ -55,6 +56,10 @@ vector<int> MergeSort(const vector<int>& nums){
 int main() {
     vector<int> nums = {5, 15, 13, 0, -5, 1500, 150000, -1500, -15000};
     vector<int> sorted = MergeSort(nums);
+    
+    cout << "Unsorted: ";
+    PrintVector(nums);
+    cout << "  Sorted: ";
     PrintVector(sorted);
 
     return 0;
