@@ -25,9 +25,8 @@ void PrintVector(const vector<int>& vec){
 
 vector<int> MergeSort(const vector<int>& nums){
     // exit condition
-    if (nums.size() == 1){
+    if(nums.size() <= 1)
         return nums;
-    } 
 
     // split into two
     vector<int> left(nums.begin(), nums.begin() + nums.size() / 2);
@@ -35,7 +34,7 @@ vector<int> MergeSort(const vector<int>& nums){
     left = MergeSort(left);
     right = MergeSort(right);
     
-    // merge next
+    // merge into new vector using two fingers
     iter left_iter = left.begin();
     iter right_iter = right.begin();
     vector<int> merged;
@@ -54,7 +53,7 @@ vector<int> MergeSort(const vector<int>& nums){
 }
 
 int main() {
-    vector<int> nums = {5, 3, 2, 15, 0, -5, 12, 0, 0, 200};
+    vector<int> nums = {5, 15, 13, 0, -5, 1500, 150000, -1500, -15000};
     vector<int> sorted = MergeSort(nums);
     PrintVector(sorted);
 
